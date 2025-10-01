@@ -1,11 +1,12 @@
 body {
-    background: linear-gradient(135deg, #f0c27b, #4b1248);
+    background: linear-gradient(135deg, #163c75, #278234);
     font-family: 'Segoe UI', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    
 }
 
 .calculator {
@@ -40,12 +41,12 @@ button {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    background-color: #ffeaa7;
+    background-color: #135b67;
     transition: 0.3s;
 }
 
 button:hover {
-    background-color: #fab1a0;
+    background-color: #92961c;
 }
 
 .fade-in {
