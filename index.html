@@ -2,94 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Countdown Clock Timer</title>
-    <link href="https://fonts.googleapis.com/css?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background: #000;
-            color: #fff;
-            font-family: 'Orbitron', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-            letter-spacing: 2px;
-            color: #fff;
-            text-align: center;
-        }
-        .countdown {
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-            background: #111;
-            padding: 30px 50px;
-            border-radius: 20px;
-            box-shadow: 0 0 30px #2228, 0 0 10px #2224;
-            display: flex;
-            gap: 30px;
-        }
-        .time-section {
-            text-align: center;
-        }
-        .time-value {
-            font-size: 3.5rem;
-            font-weight: bold;
-            display: block;
-            color: #fff;
-        }
-        .time-label {
-            font-size: 1rem;
-            color: #fff;
-            margin-top: 5px;
-            letter-spacing: 1px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="heading">You have X days left.</h1>
-    <div class="countdown" id="countdown">
-        <div class="time-section">
-            <span class="time-value" id="days">0</span>
-            <span class="time-label">DAYS</span>
-        </div>
-        <div class="time-section">
-            <span class="time-value" id="hours">00</span>
-            <span class="time-label">HOURS</span>
-        </div>
-        <div class="time-section">
-            <span class="time-value" id="minutes">00</span>
-            <span class="time-label">MINUTES</span>
-        </div>
-        <div class="time-section">
-            <span class="time-value" id="seconds">00</span>
-            <span class="time-label">SECONDS</span>
+    <div class="calculator">
+        <input type="text" id="display" disabled />
+        <div class="buttons">
+     <button onclick="clearDisplay()">C</button>
+     <button onclick="appendValue('7')">7</button>
+     <button onclick="appendValue('8')">8</button>
+     <button onclick="appendValue('9')">9</button>
+     <button onclick="appendValue('/')">&divide;</button>
+
+     <button onclick="appendValue('4')">4</button>
+     <button onclick="appendValue('5')">5</button>
+     <button onclick="appendValue('6')">6</button>
+     <button onclick="appendValue('*')">&times;</button>
+
+     <button onclick="appendValue('1')">1</button>
+     <button onclick="appendValue('2')">2</button>
+     <button onclick="appendValue('3')">3</button>
+     <button onclick="appendValue('-')">-</button>
+
+     <button onclick="appendValue('0')">0</button>
+     <button onclick="appendValue('.')">.</button>
+     <button onclick="calculate()">=</button>
+     <button onclick="appendValue('+')">+</button>
         </div>
     </div>
-    <script>
-        const targetDate = new Date('2025-10-22T00:00:00');
-        function updateCountdown() {
-            const now = new Date();
-            const diff = targetDate - now;
-            let days = 0, hours = 0, minutes = 0, seconds = 0;
-            if (diff > 0) {
-                days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-                minutes = Math.floor((diff / (1000 * 60)) % 60);
-                seconds = Math.floor((diff / 1000) % 60);
-            }
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-            document.getElementById('heading').textContent = `You have ${days} day${days !== 1 ? 's' : ''} left`;
-        }
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-    </script>
+    </div>
+     <script src="script.js"></script>
 </body>
 </html>
